@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/studyTrackerFragment">
+    <fragment
+        android:id="@+id/studyTrackerFragment"
+        android:name="com.yusufgltc.stumood.studytracker.StudyTrackerFragment"
+        android:label="StudyTrackerFragment"
+        tools:layout="@layout/fragment_study_tracker" >
+        <action
+            android:id="@+id/action_studyTrackerFragment_to_studyQualityFragment"
+            app:destination="@id/studyQualityFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:popEnterAnim="@anim/slide_in_right" />
+        <action
+            android:id="@+id/action_studyTrackerFragment_to_studyDetailFragment"
+            app:destination="@id/studyDetailFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:popEnterAnim="@anim/slide_in_right" />
+    </fragment>
+    <fragment
+        android:id="@+id/studyQualityFragment"
+        android:name="com.yusufgltc.stumood.studyquality.StudyQualityFragment"
+        android:label="fragment_study_quality"
+        tools:layout="@layout/fragment_study_quality" >
+        <argument
+            android:name="studyKey"
+            app:argType="long"/>
+        <action
+            android:id="@+id/action_studyQualityFragment_to_studyTrackerFragment"
+            app:destination="@id/studyTrackerFragment"
+            app:launchSingleTop="false"
+            app:popUpTo="@+id/studyTrackerFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/studyDetailFragment"
+        android:name="com.yusufgltc.stumood.studydetail.StudyDetailFragment"
+        android:label="StudyDetailFragment"
+        tools:layout="@layout/fragment_study_detail">
+        <argument
+            android:name="studyKey"
+            app:argType="long"/>
+        <action
+            android:id="@+id/action_studyDetailFragment_to_studyTrackerFragment"
+            app:destination="@id/studyTrackerFragment"
+            app:launchSingleTop="false"
+            app:popUpTo="@id/studyTrackerFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+</navigation>
